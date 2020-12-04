@@ -1,10 +1,8 @@
  #include <ESP8266WiFi.h>
 
 const char *ssid = "Centigrade-Legacy";
-const char *password = "Gufbmc92YVzkmvsF";
 
 const char* host = "gitlab.intranet.centigrade.de";
-const char* privateKey = "4Nan84WZayWd5ob7THm-";
 
 void setupNetwork() {
   Serial.begin(115200);
@@ -17,7 +15,7 @@ void setupNetwork() {
   Serial.print("Connecting to ");
   Serial.println(ssid);
   
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid, WIFI_PASSWORD);
   
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);

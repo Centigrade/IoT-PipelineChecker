@@ -5,23 +5,17 @@
 #include <WiFiClientSecure.h>
 #include <ArduinoJson.h>
 #include "config.h"
-#include "secrets.h"
+#include "secrets.h" 
 
-PipelineState pipelineState = RUNNING; 
-
-void setup()
-{
+void setup(){
+  
   setupNetwork();
   String result = loopNetwork();
-  pipelineState = getPilpelineStatus(result);
-  
-  // setupProgrammCheck();
-  // loopProgrammCheck();
-  
+  pState = getPipelineStatus(result);
+  setupSwitchLEDLights();
+ 
 }
 
-void loop()
-{
- loopFeedback(pipelineState);
-  
+void loop(){
+  loopSwitchLEDLights(pState);
 }
