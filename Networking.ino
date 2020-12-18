@@ -1,9 +1,17 @@
  #include <ESP8266WiFi.h>
 
+//WIFI
 const char *ssid = "Centigrade-Legacy";
 
-const char* host = "gitlab.intranet.centigrade.de";
+// GitLab
+const char* gitLabServer = "gitlab.intranet.centigrade.de";
+// API Version: https://docs.gitlab.com/ee/api/README.html#current-status
+const String gitLabAPIVersion = "/api/v4";
+// The project pipeline part of the requested URL
+const String gitLabProjectID = "377";
 
+
+//Setup the conncetion to the WIFI network
 void setupNetwork() {
   Serial.begin(115200);
   delay(10);
@@ -28,32 +36,31 @@ void setupNetwork() {
   Serial.println(WiFi.localIP());
 }
 
-int value = 0;
+int getGitLabPipelinesDataFunctionCallCounter = 0;
 
-String loopNetwork() {
+// Request a Single Pipeline Request from GitLab.
+// More details in GitLab Documentation: https://docs.gitlab.com/ee/api/pipelines.html
+String GetGitLabPipelinesData() {
   delay(5000);
-  ++value;
+  ++getGitLabPipelinesDataFunctionCallCounter;
 
   Serial.print("connecting to ");
-  Serial.println(host);
+  Serial.println(gitLabServer);
   
   // Use WiFiClient class to create TCP connections
   WiFiClient client;
   const int httpPort = 80;
-  if (!client.connect(host, httpPort)) {
+  if (!client.connect(gitLabServer, httpPort)) {
     Serial.println("connection failed");
     return "";
   }
   
-  // We now create a URI for the request
-  String url = "/api/v4/projects/377/pipelines";
+  Serial.println("Requesting GitLabProjectID: " + gitLabProjectID);
   
-  Serial.print("Requesting URL: ");
-  Serial.println(url);
-  
-  // This will send the request to the server
-  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
-               "Host: " + host + "\r\n" + 
+  // This will send the get request for a single projects pipelines list -> GET /projects/:id/pipelines
+  // https://docs.gitlab.com/ee/api/pipelines.html#list-project-pipelines
+  client.print(String("GET ") + gitLabAPIVersion + "/projects/" + gitLabProjectID + "/pipelines" + " HTTP/1.1\r\n" +
+               "HOST: " + gitLabServer + "\r\n" + 
                "PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
                "Connection: close\r\n\r\n");
   unsigned long timeout = millis();
