@@ -1,10 +1,9 @@
- #include <ESP8266WiFi.h>
 
 const char *ssid = "Centigrade-Legacy";
 
 const char* host = "gitlab.intranet.centigrade.de";
 
-void setupNetwork() {
+String setupNetwork() {
   Serial.begin(115200);
   delay(10);
 
@@ -26,11 +25,9 @@ void setupNetwork() {
   Serial.println("WiFi connected");  
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-}
 
-int value = 0;
 
-String loopNetwork() {
+  int value = 0;
   delay(5000);
   ++value;
 

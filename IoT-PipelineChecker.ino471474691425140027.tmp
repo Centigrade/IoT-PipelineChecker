@@ -8,13 +8,15 @@
 void setup(){
   
   setupSwitchLEDLights();
-  result = setupNetwork();
+  setupNetwork();
+  String result = loopNetwork();
+  pState = getPipelineStatus(result);
+  Serial.println("pState: " + pState);
   
-  Serial.println("This is the program running");
+ 
+ 
 }
 
 void loop(){
-  pState = getPipelineStatus(result);
-  delay(5000);
   loopSwitchLEDLights(pState);
 }

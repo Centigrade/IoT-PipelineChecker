@@ -10,10 +10,10 @@ PipelineState getPipelineStatus(String document){
 
       
   // Output to serial monitor
-  Serial.println("id: ");
-  Serial.print(id); 
-  Serial.println("status: ");
-  Serial.print(status);  
+  Serial.print("id: ");
+  Serial.println(id); 
+  Serial.print("status: ");
+  Serial.println(status);  
 
   if (strcmp(status , "success") == 0)
   {
