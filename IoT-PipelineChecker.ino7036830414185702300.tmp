@@ -9,12 +9,12 @@ void setup(){
   
   setupSwitchLEDLights();
   String setupNetwork();
-  result = GitlabServerConnection();
-  
+  String GitlabServerConnection();
   Serial.println("This is the program running");
 }
 
 void loop(){
+  result = String queryResult();
   pState = getPipelineStatus(result);
   delay(5000);
   loopSwitchLEDLights(pState);
