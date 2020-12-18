@@ -10,7 +10,7 @@
 void setup(){
   
   setupNetwork();
-  String result = loopNetwork();
+  String result = GetGitLabPipelinesData();
   pState = getPipelineStatus(result);
   setupSwitchLEDLights();
  
