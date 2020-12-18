@@ -3,11 +3,10 @@ PipelineState getPipelineStatus(String document){
   Serial.println("Parsing start: ");
  
   DynamicJsonDocument jsonBuffer(2048);
-     
   deserializeJson(jsonBuffer, document);
    
-   int id = jsonBuffer[0]["id"];
-  const char* status = jsonBuffer[0]["status"]; 
+   int id = jsonBuffer[1]["id"];
+  const char* status = jsonBuffer[1]["status"]; 
      
   // Output to serial monitor
   Serial.print("id: ");
@@ -16,19 +15,23 @@ PipelineState getPipelineStatus(String document){
   Serial.println(status);  
 
   if (strcmp(status , "success") == 0)
-  { Serial.println("here we are successful");
+  { 
+    Serial.println("here we are successful");
     pState = PASSED;
   } 
   else if (strcmp(status , "failed") == 0)
-  {Serial.println("here we meet failure");
+  {
+    Serial.println("here we meet failure");
     pState = FAILED;
   } 
   else if (strcmp(status , "running") == 0) 
-  {Serial.println("still running");
+  {
+    Serial.println("still running");
     pState = RUNNING;
   }
   else 
-  {Serial.println("no one knowsss");
+  {
+    Serial.println("no one knowsss");
     pState = UNKNOWN;
   }
 }

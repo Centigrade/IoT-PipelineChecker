@@ -1,13 +1,13 @@
-
+// WiFi access data
 const char *ssid = "Centigrade-Legacy";
-
+// Gitlab host
 const char* host = "gitlab.intranet.centigrade.de";
 
 String setupNetwork() {
   Serial.begin(115200);
   delay(10);
 
-  // We start by connecting to a WiFi network
+  // connecting to a WiFi network
 
   Serial.println();
   Serial.println();
@@ -42,13 +42,13 @@ String setupNetwork() {
     return "";
   }
   
-  // We now create a URI for the request
+  // create a URI for the request
   String url = "/api/v4/projects/377/pipelines";
   
   Serial.print("Requesting URL: ");
   Serial.println(url);
   
-  // This will send the request to the server
+  //  send the request to the server
   client.print(String("GET ") + url + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" + 
                "PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
