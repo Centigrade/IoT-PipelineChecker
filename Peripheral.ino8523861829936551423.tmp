@@ -2,10 +2,29 @@ void setupSwitchLEDLights() {
   pinMode(greenLEDPin, OUTPUT);
   pinMode(blueLEDPin, OUTPUT);
   pinMode(redLEDPin, OUTPUT);
+
   
+// LED test
+ Serial.println("Testing LEDs...");
+  pState = PASSED;
+  lastUpdateMillis = millis();
+  loopSwitchLEDLights(pState);
+  delay(3000);
+  pState = RUNNING;
+  lastUpdateMillis = millis();
+  loopSwitchLEDLights(pState);
+  delay(3000);
+  pState = FAILED;
+  lastUpdateMillis = millis();
+  loopSwitchLEDLights(pState);
+  delay(3000);
+
+  Serial.println("Starting.");
+  pState = UNKNOWN;
+   
 }
 
-void loopSwitchLEDLights(PipelineState pState){Serial.println("let´s start the game");
+void loopSwitchLEDLights(PipelineState pState){
   //Here i set on the different pins in such a way that each pin should response to a particular order 
   switch (pState){
     Serial.println("LoopSwitchPState: " + pState);
@@ -18,21 +37,18 @@ void loopSwitchLEDLights(PipelineState pState){Serial.println("let´s start the 
       break;
     
     case PASSED: // green
-      Serial.println("This is Passed");
       digitalWrite(greenLEDPin, HIGH);
       digitalWrite(blueLEDPin, LOW);
       digitalWrite(redLEDPin, LOW);
       break;
 
     case FAILED: // red
-      Serial.println("This is failed");
       digitalWrite(greenLEDPin, LOW);
       digitalWrite(blueLEDPin, LOW);
       digitalWrite(redLEDPin, HIGH);
       break;
 
     case RUNNING: // blue
-       Serial.println("This is pending");
       digitalWrite(greenLEDPin, LOW);
       digitalWrite(blueLEDPin, HIGH);
       digitalWrite(redLEDPin, LOW);

@@ -1,4 +1,3 @@
- #include <ESP8266WiFi.h>
 
 //WIFI
 const char *ssid = "Centigrade-Legacy";
@@ -34,7 +33,6 @@ void setupNetwork() {
   Serial.println("WiFi connected");  
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-}
 
 int getGitLabPipelinesDataFunctionCallCounter = 0;
 
