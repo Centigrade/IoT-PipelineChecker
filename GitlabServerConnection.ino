@@ -15,13 +15,17 @@ String GitlabServerConnection() {
     return "";
   }
   
-  // create a URI for the request
-  String url = "/api/v4/projects/377/pipelines";
+  // We now create a URI for the request
+  String apiVersion      = "/api/v4";
+  String gitlabProjectId = "/projects/377";
+  String projectName     = "/pipelines";
+  
+  String url = apiVersion + gitlabProjectId + projectName;
   
   Serial.print("Requesting URL: ");
   Serial.println(url);
   
-  //  send the request to the server
+  // This will send the request to the server
   client.print(String("GET ") + url + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" + 
                "PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
@@ -37,11 +41,15 @@ String GitlabServerConnection() {
   String queryResult;
   
   // Read all the lines of the reply from server and print them to Serial
+  int i = 0;
   while(client.available()){
     queryResult = client.readStringUntil('\r');
-    Serial.print("Result: " + queryResult);
+
+    Serial.println(queryResult);
   }
+  
   Serial.println();
   Serial.println("closing connection");
+
   return queryResult;
 }

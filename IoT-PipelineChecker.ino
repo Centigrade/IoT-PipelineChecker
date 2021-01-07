@@ -8,7 +8,7 @@
 void setup(){
   
   setupSwitchLEDLights();
-  String setupNetwork();
+  setupNetwork();
   result = GitlabServerConnection();
   
   Serial.println("This is the program running");

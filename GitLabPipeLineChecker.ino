@@ -5,17 +5,17 @@ PipelineState getPipelineStatus(String document){
   DynamicJsonDocument jsonBuffer(2048);
      
   deserializeJson(jsonBuffer, document);
-   
-   int id = jsonBuffer[0]["id"];
+  int id = jsonBuffer[0]["id"];
   const char* status = jsonBuffer[0]["status"]; 
-     
+
+      
   // Output to serial monitor
   Serial.print("id: ");
   Serial.println(id); 
   Serial.print("status: ");
   Serial.println(status);  
 
-  if (strcmp(status , "success") == 0)
+   if (strcmp(status , "success") == 0)
   { Serial.println("here we are successful");
     pState = PASSED;
   } 
