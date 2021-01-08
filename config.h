@@ -1,8 +1,10 @@
 // WiFi access data
 const char *ssid = "Centigrade-Legacy";
+//const char *ssid = House WiFi name;
 
 // Gitlab Server
-const char* host = "gitlab.intranet.centigrade.de";
+//const char* host = "gitlab.intranet.centigrade.de";
+const char* host = "gitlab.centigrade.de";
 
 // LED output mapping
 const int greenLEDPin = 19;    

@@ -16,8 +16,10 @@ String GitlabServerConnection() {
   }
   
   // We now create a URI for the request
+  String m = ":443";
   String apiVersion      = "/api/v4";
-  String gitlabProjectId = "/projects/377";
+  //String gitlabProjectId = "/projects/377";
+  String gitlabProjectId = "/projects/237";
   String projectName     = "/pipelines";
   
   String url = apiVersion + gitlabProjectId + projectName;
@@ -28,7 +30,7 @@ String GitlabServerConnection() {
   
   // This will send the request to the server
   client.print(String("GET ") + url + " HTTP/1.1\r\n" +
-               "Host: " + host + "\r\n" + 
+               "Host: " + host + "\r\n" +
                "PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
                "Connection: close\r\n\r\n");
   unsigned long timeout = millis();
