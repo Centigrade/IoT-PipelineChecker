@@ -13,7 +13,7 @@ String GitlabServerConnection() {
   Serial.print("connecting to ");
   Serial.println(host);
   
-  const int httpsPort = 8443;
+  const int httpsPort = 443;
   if (!client.connect(host, httpsPort)) {
     Serial.println("connection failed");
     return "";
@@ -35,7 +35,7 @@ String GitlabServerConnection() {
   // This will send the request to the server
   client.print(String("GET ") + url + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" +
-               //"PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
+               "PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
                "Connection: close\r\n\r\n");
   unsigned long timeout = millis();
   // Error handling if client is not available
