@@ -1,22 +1,26 @@
 int value = 0;
 
+// Use WiFiClient class to create TCP connections
+WiFiClientSecure client;
+
 String GitlabServerConnection() {
   delay(5000);
   ++value;
-
+  
+  //set SSL/TLS certificate of Centigrade´s gitlab webpage
+  client.setCACert(CENTIGRADE_GITLAB_CERTIFICATE);
+  
   Serial.print("connecting to ");
   Serial.println(host);
   
-  // Use WiFiClient class to create TCP connections
-  WiFiClient client;
-  const int httpPort = 80;
-  if (!client.connect(host, httpPort)) {
+  const int httpsPort = 8443;
+  if (!client.connect(host, httpsPort)) {
     Serial.println("connection failed");
     return "";
   }
   
   // We now create a URI for the request
-  String m = ":443";
+  
   String apiVersion      = "/api/v4";
   //String gitlabProjectId = "/projects/377";
   String gitlabProjectId = "/projects/237";
@@ -31,7 +35,7 @@ String GitlabServerConnection() {
   // This will send the request to the server
   client.print(String("GET ") + url + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" +
-               "PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
+               //"PRIVATE-TOKEN: " + API_AUTH_TOKEN + "\r\n" +
                "Connection: close\r\n\r\n");
   unsigned long timeout = millis();
   // Error handling if client is not available
