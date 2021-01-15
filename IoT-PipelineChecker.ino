@@ -1,7 +1,6 @@
 //Here i import the different libraries which i will need to run my program, using the include fonction
 #include <Arduino.h>
 #include <WiFiClientSecure.h>
-#include <WiFi.h>
 #include <ArduinoJson.h>
 #include "config.h"
 #include "secrets.h" 

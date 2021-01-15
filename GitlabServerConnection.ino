@@ -7,9 +7,6 @@ String GitlabServerConnection() {
   delay(5000);
   ++value;
   
-  //set SSL/TLS certificate of Centigrade´s gitlab webpage
-  client.setCACert(CENTIGRADE_GITLAB_CERTIFICATE);
-  
   Serial.print("connecting to ");
   Serial.println(host);
   
