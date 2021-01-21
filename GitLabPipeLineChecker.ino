@@ -1,3 +1,10 @@
+
+/*all parameters and functions 
+* fron the ArduinoJson.h library 
+* to parse the actual results  and get
+* only the desired outputs (pipeline-id
+* and -status)
+*/
 PipelineState getPipelineStatus(String document){
   
   Serial.println("Parsing start: ");

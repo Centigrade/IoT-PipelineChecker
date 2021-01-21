@@ -3,6 +3,11 @@ int value = 0;
 // Use WiFiClient class to create TCP connections
 WiFiClientSecure client;
 
+/*diffents functions and parameters
+* all combined to connect to the 
+* actual web page (server) and 
+* project and  fetch the actual result
+*/
 String GitlabServerConnection() {
   delay(5000);
   ++value;

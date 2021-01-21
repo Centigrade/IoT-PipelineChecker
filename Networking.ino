@@ -1,4 +1,6 @@
-// connecting to a WiFi network
+/*parameting internet connection to
+* a wifi network.
+*/
 void setupNetwork() {
   Serial.begin(115200);
   delay(10);

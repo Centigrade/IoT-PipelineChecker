@@ -5,7 +5,11 @@ void setupSwitchLEDLights() {
   pinMode(redLEDPin, OUTPUT);
   
 }
-
+/*recieves the final parsed result and 
+* ligths on the Leds on the hard 
+* arduino set up device based on 
+* outcomes(enum)
+*/
 void loopSwitchLEDLights(PipelineState pState){
   Serial.println("let´s start the game");
    
