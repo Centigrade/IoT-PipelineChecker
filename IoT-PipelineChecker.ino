@@ -13,6 +13,7 @@ void setup(){
   setupSwitchLEDLights();
   setupNetwork();
   result = GitlabServerConnection();
+  setupGetUrlRequest();
   
   Serial.println("This is the program running");
 }
