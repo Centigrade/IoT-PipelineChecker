@@ -8,7 +8,7 @@ WiFiClientSecure client;
 * actual web page (server) and 
 * project and  fetch the actual result
 */
-String GitlabServerConnection(String apiVersion, String gitlabProjectId) {
+String GitlabServerConnection(String doc) {
   delay(5000);
   ++value;
   
@@ -21,7 +21,7 @@ String GitlabServerConnection(String apiVersion, String gitlabProjectId) {
     return "";
   }
   
-  String url = apiVersion + "/projects/" + gitlabProjectId;
+  String url = doc;
   
   Serial.print("Requesting URL: ");
   Serial.println(url);
