@@ -1,0 +1,38 @@
+void setupGetUrlRequest() {
+  Serial.println("Getting URL: ");
+  DynamicJsonDocument jsonBuffer(200);   
+     
+  JsonArray url = jsonBuffer.createNestedArray("url");
+  
+  JsonObject url_0 = url.createNestedObject();
+  url_0["apiVersion"] = "/api/v4";
+  url_0["projectId"] = 237;
+
+  JsonObject url_1 = url.createNestedObject();
+  url_1["apiVersion"] = "/api/v4";
+  url_1["projectId"] = 253;
+
+  deserializeJson(jsonBuffer, Serial);
+
+  int j, id, api;
+  for (j=0;j<8;j++)
+  {
+    int id = jsonBuffer[j]["projectId"];
+    const char* api = jsonBuffer[j]["apiVersion"];
+    
+    if ((id==0)&&(api==0))
+    {
+     Serial.print("apiVersion = ");
+     Serial.println(api);
+     Serial.print("projectId = ");
+     Serial.println(id);
+    }
+    else
+    {
+     Serial.print("apiVersion = ");
+     Serial.println(api);
+     Serial.print("projectId = ");
+     Serial.println(id);
+    }
+  }
+}
