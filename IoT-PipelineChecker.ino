@@ -12,8 +12,8 @@ void setup(){
   
   setupSwitchLEDLights();
   setupNetwork();
-  result = GitlabServerConnection();
-  setupGetUrlRequest();
+  result = GitlabServerConnection("/api/v4", "237");
+  //setupGetUrlRequest();
   
   Serial.println("This is the program running");
 }
