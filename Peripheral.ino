@@ -24,21 +24,21 @@ void loopSwitchLEDLights(PipelineState pState){
       break;
     
     case PASSED: // light green LED
-      Serial.println("This is Passed");
+      Serial.println("This is Passed, green LED on");
       digitalWrite(greenLEDPin, HIGH);
       digitalWrite(blueLEDPin, LOW);
       digitalWrite(redLEDPin, LOW);
       break;
 
     case FAILED: // light red LED
-      Serial.println("This is failed");
+      Serial.println("This is failed, red LED on");
       digitalWrite(greenLEDPin, LOW);
       digitalWrite(blueLEDPin, LOW);
       digitalWrite(redLEDPin, HIGH);
       break;
 
     case RUNNING:  // light bleu LED
-       Serial.println("This is pending");
+       Serial.println("This is pending, blue LED on");
       digitalWrite(greenLEDPin, LOW);
       digitalWrite(blueLEDPin, HIGH);
       digitalWrite(redLEDPin, LOW);

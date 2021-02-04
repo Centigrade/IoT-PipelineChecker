@@ -19,7 +19,7 @@ void setup(){
 }
 
 //all loop functions
-void loop(){
+void loop(){ 
   pState = getPipelineStatus(result);
   delay(5000);
   loopSwitchLEDLights(pState);

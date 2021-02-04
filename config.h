@@ -16,7 +16,8 @@ const int redLEDPin   = 15;
 const int updateDelayMillis = 5000;
 long lastUpdateMillis = 0;
 
-String result, url;
+String result;
+String url;
 
 //Here i list up the different state i will be working with using the fonction ENUMERATE
 enum PipelineState{
