@@ -15,7 +15,6 @@ PipelineState getPipelineStatus(String document){
   int id = jsonBuffer[0]["id"];
   const char* status = jsonBuffer[0]["status"]; 
 
-      
   // Output to serial monitor
   Serial.print("id: ");
   Serial.println(id); 
