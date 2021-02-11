@@ -35,11 +35,11 @@ String GetUrlRequest() {
 
       for (int i=0; i< urlsSize; i++)
       {
-        Serial.println("arry  : " + Urls[i]);
+        Serial.println(Urls[i]);
         myUrls = Urls[i];
         break;
       } 
       
-      return Urls;
+      return myUrls;
 
 }

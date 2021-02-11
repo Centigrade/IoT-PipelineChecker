@@ -12,14 +12,9 @@ void setup(){
   
   setupSwitchLEDLights();
   setupNetwork();
-  String RequestUrls[10] ;// Make Array Dynamic size
-  GetUrlRequest(RequestUrls); // fxn should return an array of urls 
-  for (int i=0; i< 10; i++)
-      {
-        Serial.println("Requested Array  : " + RequestUrls[i]);
-      } 
-  result = GitlabServerConnection(url); // iterate over urls (for-loop)
-  // call gitlab server connection for each url in the array
+  url = GetUrlRequest();
+  result = GitlabServerConnection(url);
+  
   Serial.println("This is the program running");
 }
 
