@@ -1,3 +1,5 @@
+//here we do connect our prgram to various urls through our main server and move next to ParsingResult class
+
 int value = 0;
 
 // Use WiFiClient class to create TCP connections

@@ -1,3 +1,4 @@
+// this is the main part of the program , from herre we move to the GetUrl class
 /*Here i import the different libraries which i will 
  * need to run my program, using the include fonction
  */
@@ -9,18 +10,31 @@
 
 //all setup functions
 void setup(){
-  
   setupSwitchLEDLights();
   setupNetwork();
-  url = GetUrlRequest();
-  result = GitlabServerConnection(url);
-  
+  String RequestUrls[urlSize];
+  // function returns an array of urls 
+  GetUrlRequest(RequestUrls); 
+  for (int i=0; i< urlSize; i++)
+      {
+        String url =  RequestUrls[i];
+        if (url.length() > 0)
+        {
+           Serial.println("Trying GitLabConnection or Url : " + url);
+           results[i] = GitlabServerConnection(url); 
+           Serial.println("Result from Url is : " + results[i]);
+        }
+      } 
+    
   Serial.println("This is the program running");
 }
 
 //all loop functions
 void loop(){ 
-  pState = getPipelineStatus(result);
-  delay(5000);
-  loopSwitchLEDLights(pState);
+  for (int i=0; i< urlSize; i++) 
+  {
+     pState = getPipelineStatus(results[i]);
+     delay(5000);
+     loopSwitchLEDLights(pState);
+  }
 }

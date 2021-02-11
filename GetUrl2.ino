@@ -1,4 +1,7 @@
-String GetUrlRequest() {
+//Here we we basically deal with Urls and next we move to the ConnectionToServer... class
+
+//Class with a String array as parametter to get the diffents url and strore them
+void GetUrlRequest(String RequestUrls[]) {
   Serial.println("Getting URL: ");
   
   // Allocate the JsonDocument
@@ -11,35 +14,15 @@ String GetUrlRequest() {
   deserializeJson(jsonBuffer, input);
 
    // Get a reference to the root array
-   JsonArray array = jsonBuffer.as<JsonArray>();
+  JsonArray array = jsonBuffer.as<JsonArray>();
 
-  
-  String myUrls, url1, url2;
-  
-  for (int i = 0; i < array.size(); i++) 
+ for (int i = 0; i < array.size(); i++) 
    {
-       /*JsonObject repo = array[i];
+       JsonObject repo = array[i];
       const char* apiVersion = repo["apiVersion"];
-      const char* projectId  = repo["projectId"];*/
-      const char* apiVersion1 = array[0]["apiVersion"];
-      const char* projectId1  = array[0]["projectId"];
-      const char* apiVersion2 = array[1]["apiVersion"];
-      const char* projectId2  = array[1]["projectId"];
-   
-      url1 = String(apiVersion1) + "/projects/" + String(projectId1);
-      url2 = String(apiVersion2) + "/projects/" + String(projectId2);
-      
+      const char* projectId  = repo["projectId"];
+      //writing down the urls and saving them in the array one after the other
+      RequestUrls[i] = String(apiVersion) + "/projects/" + String(projectId);
    }  
-      int urlsSize = 10;
-      String Urls[urlsSize] = {url1, url2};
-
-      for (int i=0; i< urlsSize; i++)
-      {
-        Serial.println(Urls[i]);
-        myUrls = Urls[i];
-        break;
-      } 
       
-      return myUrls;
-
 }

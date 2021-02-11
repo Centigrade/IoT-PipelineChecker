@@ -1,3 +1,4 @@
+//here we obtain a wifi connection to helps in the proper fonctioning of the program
 /*parameting internet connection to
 * a wifi network.
 */

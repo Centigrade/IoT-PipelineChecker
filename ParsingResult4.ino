@@ -1,4 +1,4 @@
-
+//here we basically parse the result obtain from the previous calss and implement the following metods on to the LightLEDS.. class
 /*all parameters and functions 
 * fron the ArduinoJson.h library 
 * to parse the actual results  and get

@@ -1,3 +1,5 @@
+//Here is the end of the journy where we output the results on to the hardware part of the project
+
 void setupSwitchLEDLights() {
   // set LEDs as output
   pinMode(greenLEDPin, OUTPUT);
