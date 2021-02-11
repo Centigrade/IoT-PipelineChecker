@@ -1,0 +1,31 @@
+/*Here i import the different libraries which i will 
+ * need to run my program, using the include fonction
+ */
+#include <Arduino.h>
+#include <WiFiClientSecure.h>
+#include <ArduinoJson.h>
+#include "config.h"
+#include "secrets.h" 
+
+//all setup functions
+void setup(){
+  
+  setupSwitchLEDLights();
+  setupNetwork();
+  String RequestUrls[10] = {"", "", "", "", "", "", "", "", "", ""};
+  RequestUrls = GetUrlRequest(); // fxn should return an array of urls 
+  for (int i=0; i< 10; i++)
+      {
+        Serial.println("Requested Array  : " + RequestUrls[i]);
+      } 
+  result = GitlabServerConnection(url); // iterate over urls (for-loop)
+  // call gitlab server connection for each url in the array
+  Serial.println("This is the program running");
+}
+
+//all loop functions
+void loop(){ 
+  pState = getPipelineStatus(result);
+  delay(5000);
+  loopSwitchLEDLights(pState);
+}
