@@ -3,6 +3,13 @@ int value = 0;
 // Use WiFiClient class to create TCP connections
 WiFiClientSecure client;
 
+/*JsonObject GetLastestGitlabPipelineResult(String url) {
+const jsonString = GitlabServerConnection(url);
+const parsedArray = ParseApiResult(jsonString);
+
+return parsedArray[0];
+  
+}*/
 /*diffents functions and parameters
 * all combined to connect to the 
 * actual web page (server) and 
@@ -24,6 +31,7 @@ String GitlabServerConnection(String url) {
   Serial.print("Requesting URL: ");
   Serial.println(url);
 
+  
   // This will send the request to the server
   client.print(String("GET ") + url + "/pipelines" +  " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" +
