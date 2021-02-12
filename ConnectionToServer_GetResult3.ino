@@ -6,17 +6,17 @@ int value = 0;
 WiFiClientSecure client;
 
 /*diffents functions and parameters
-* all combined to connect to the 
-* actual web page (server) and 
-* project and  fetch the actual result
+  all combined to connect to the
+  actual web page (server) and
+  project and  fetch the actual result
 */
 String GitlabServerConnection(String url) {
   delay(5000);
   ++value;
-  
+
   Serial.print("connecting to ");
   Serial.println(host);
-  
+
   const int httpsPort = 443;
   if (!client.connect(host, httpsPort)) {
     Serial.println("connection failed");
@@ -41,15 +41,15 @@ String GitlabServerConnection(String url) {
     }
   }
   String queryResult;
-  
+
   // Read all the lines of the reply from server and print them to Serial
-  while(client.available()){
+  while (client.available()) {
     queryResult = client.readStringUntil('\r');
-    
+
     int indexOfJsonBeginning = queryResult.indexOf("[");
-    if(indexOfJsonBeginning != -1)
+    if (indexOfJsonBeginning != -1)
     {
-      // only use the JSON Data from the result string as query result substring 
+      // only use the JSON Data from the result string as query result substring
       queryResult = queryResult.substring(indexOfJsonBeginning);
       Serial.print("LastWhileLoop");
       break;
@@ -57,7 +57,7 @@ String GitlabServerConnection(String url) {
 
     Serial.print(queryResult);
   }
-  
+
   Serial.println();
   Serial.println("closing connection");
 

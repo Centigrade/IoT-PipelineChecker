@@ -8,107 +8,97 @@ void setupSwitchLEDLights() {
   pinMode(greenLEDPinProject2, OUTPUT);
   pinMode(blueLEDPinProject2, OUTPUT);
   pinMode(redLEDPinProject2, OUTPUT);
-  
+
 }
-/*recieves the final parsed result and 
-* ligths on the Leds on the hard 
-* arduino set up device based on 
-* outcomes(enum)
+/*recieves the final parsed result and
+  ligths on the Leds on the hard
+  arduino set up device based on
+  outcomes(enum)
 */
-void loopSwitchLEDLights(PipelineState pState){
-  String RequestUrls[urlSize];
-  Serial.println("let´s start the game");
+void loopSwitchLEDLights(int projectNr) {
+  Serial.println("let´s start the game" + pState);
   switch (pState)
   {
-   Serial.println("LoopSwitchPState: " + pState);
-   case UNKNOWN: // blink bleu LED
-     for (int i=0; i< urlSize; i++)
-     {
-       if(RequestUrls[i]==RequestUrls[0])
-       {
+    case 0: // UNKNOWN case, blink bleu LED
+      Serial.println("now in the UNKNOWN case");
+      if (projectNr == 0)
+      {
+        Serial.println("This is UNKNOWN, blue LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject1, LOW);
         digitalWrite(blueLEDPinProject1, HIGH);
-        digitalWrite(redLEDPinProject1, LOW); 
-        delay(1000); 
+        digitalWrite(redLEDPinProject1, LOW);
+        delay(1000);
         digitalWrite(blueLEDPinProject1, LOW);
-        break;
-       }
-       else if(RequestUrls[i]==RequestUrls[1])
-       {
+      }
+      else if (projectNr == 1)
+      {
+        Serial.println("This is UNKNOWN, blue LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject2, LOW);
         digitalWrite(blueLEDPinProject2, HIGH);
         digitalWrite(redLEDPinProject2, LOW);
         delay(1000);
         digitalWrite(blueLEDPinProject2, LOW);
-        break;
-       }
-     }
-      
-   case PASSED: // light green LED
-     for (int i=0; i< urlSize; i++)
-     {
-       if(RequestUrls[i]==RequestUrls[0])
-       {
-        Serial.println("This is Passed, green LED on");
+      }
+      break;
+
+    case 1: // PASSED case, light green LED
+      Serial.println("now in the PASSED case");
+      if (projectNr == 0)
+      {
+        Serial.println("This is Passed, green LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject1, HIGH);
         digitalWrite(blueLEDPinProject1, LOW);
-        digitalWrite(redLEDPinProject1, LOW); 
-        break;
-       }
-       else if(RequestUrls[i]==RequestUrls[1])
-       {
-        Serial.println("This is Passed, green LED on"); 
+        digitalWrite(redLEDPinProject1, LOW);
+      }
+      else if (projectNr == 1)
+      {
+        Serial.println("This is Passed, green LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject2, HIGH);
         digitalWrite(blueLEDPinProject2, LOW);
         digitalWrite(redLEDPinProject2, LOW);
-        break;
-       }
-     }
+      }
+      break;
 
-  case FAILED: // light red LED
-    for (int i=0; i< urlSize; i++)
-     {
-       if(RequestUrls[i]==RequestUrls[0])
-       {
-        Serial.println("This is failed, red LED on");
+    case 2: // FAILED case, light red LED
+      Serial.println("now in the FAILED case");
+      if (projectNr == 0)
+      {
+        Serial.println("This is failed, red LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject1, LOW);
         digitalWrite(blueLEDPinProject1, LOW);
-        digitalWrite(redLEDPinProject1, HIGH); 
-        break;
-       }
-       else if(RequestUrls[i]==RequestUrls[1])
-       {
-        Serial.println("This is failed, red LED on"); 
+        digitalWrite(redLEDPinProject1, HIGH);
+      }
+      else if (projectNr == 1)
+      {
+        Serial.println("This is failed, red LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject2, LOW);
         digitalWrite(blueLEDPinProject2, LOW);
         digitalWrite(redLEDPinProject2, HIGH);
-        break;
-       }
-     }
+      }
+      break;
 
-  case RUNNING:  // light bleu LED
-    for (int i=0; i< urlSize; i++)
-     {
-       if(RequestUrls[i]==RequestUrls[0])
-       {
-        Serial.println("This is pending, blue LED on");
+    case 3:  // RUNNING case, light bleu LED
+      Serial.println("now in the RUNNING case");
+      if (projectNr == 0)
+      {
+        Serial.println("This is pending, blue LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject1, LOW);
         digitalWrite(blueLEDPinProject1, HIGH);
-        digitalWrite(redLEDPinProject1, LOW); 
-        break;
-       }
-       else if(RequestUrls[i]==RequestUrls[1])
-       {
-        Serial.println("This is pending, blue LED on"); 
+        digitalWrite(redLEDPinProject1, LOW);
+      }
+      else if (projectNr == 1)
+      {
+        Serial.println("This is pending, blue LED on for project " + projectNr);
         digitalWrite(greenLEDPinProject2, LOW);
         digitalWrite(blueLEDPinProject2, HIGH);
         digitalWrite(redLEDPinProject2, LOW);
-        break;
-       }
-     }
+      }
+      break;
 
+    default:
+      Serial.println("now in the default case");
   }
-  
+
   delay(1000);
- 
+
 }

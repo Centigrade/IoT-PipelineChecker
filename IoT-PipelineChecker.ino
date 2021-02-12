@@ -1,42 +1,42 @@
 // this is the main part of the program , from herre we move to the GetUrl class
-/*Here i import the different libraries which i will 
- * need to run my program, using the include fonction
- */
+/*Here i import the different libraries which i will
+   need to run my program, using the include fonction
+*/
 #include <Arduino.h>
 #include <WiFiClientSecure.h>
 #include <ArduinoJson.h>
 #include "config.h"
-#include "secrets.h" 
+#include "secrets.h"
 
 String results[10];
 
 //all setup functions
-void setup(){
+void setup() {
   setupSwitchLEDLights();
   setupNetwork();
   String RequestUrls[urlSize];
-  // function returns an array of urls 
-  SetUrlRequest(RequestUrls); 
-  for (int i=0; i< urlSize; i++)
-      {
-        String url =  RequestUrls[i];
-        if (url.length() > 0)
-        {
-           Serial.println("Trying GitLabConnection or Url : " + url);
-           results[i] = GitlabServerConnection(url); 
-           Serial.println("Result from Url is : " + results[i]);
-        }
-      } 
-    
+  // function returns an array of urls
+  SetUrlRequest(RequestUrls);
+  for (int i = 0; i < urlSize; i++)
+  {
+    String url =  RequestUrls[i];
+    if (url.length() > 0)
+    {
+      Serial.println("Trying GitLabConnection or Url : " + url);
+      results[i] = GitlabServerConnection(url);
+      Serial.println("Result from Url is : " + results[i]);
+    }
+  }
+
   Serial.println("This is the program running");
 }
 
 //all loop functions
-void loop(){ 
-  for (int i=0; i< urlSize; i++) 
+void loop() {
+  for (int i = 0; i < urlSize; i++)
   {
-     pState = getPipelineStatus(results[i]);
-     delay(5000);
-     loopSwitchLEDLights(pState);
+    getPipelineStatus(results[i]);
+    delay(5000);
+    loopSwitchLEDLights(i);
   }
 }
