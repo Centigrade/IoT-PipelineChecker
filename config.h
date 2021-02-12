@@ -25,6 +25,8 @@ long lastUpdateMillis = 0;
 // Put the JSON input in memory
   char input[] = "[{\"apiVersion\":\"/api/v4\",\"projectId\":\"253\"},{\"apiVersion\":\"/api/v4\",\"projectId\":\"237\"}]";
 
+int urlSize = 10;
+
 
 //Here i list up the different state i will be working with using the fonction ENUMERATE
 enum PipelineState{

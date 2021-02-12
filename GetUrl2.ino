@@ -7,8 +7,6 @@ void SetUrlRequest(String RequestUrls[]) {
   // Allocate the JsonDocument
   DynamicJsonDocument jsonBuffer(200);   
   
-  
-     
   // Parse the JSON input
   deserializeJson(jsonBuffer, input);
 

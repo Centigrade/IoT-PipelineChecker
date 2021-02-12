@@ -8,7 +8,6 @@
 #include "config.h"
 #include "secrets.h" 
 
-int urlSize = 10;
 String results[10];
 
 //all setup functions
