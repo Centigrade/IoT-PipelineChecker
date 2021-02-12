@@ -1,14 +1,13 @@
 //Here we we basically deal with Urls and next we move to the ConnectionToServer... class
 
 //Class with a String array as parametter to get the diffents url and strore them
-void GetUrlRequest(String RequestUrls[]) {
+void SetUrlRequest(String RequestUrls[]) {
   Serial.println("Getting URL: ");
   
   // Allocate the JsonDocument
   DynamicJsonDocument jsonBuffer(200);   
   
-  // Put the JSON input in memory
-  char input[] = "[{\"apiVersion\":\"/api/v4\",\"projectId\":\"253\"},{\"apiVersion\":\"/api/v4\",\"projectId\":\"237\"}]";
+  
      
   // Parse the JSON input
   deserializeJson(jsonBuffer, input);

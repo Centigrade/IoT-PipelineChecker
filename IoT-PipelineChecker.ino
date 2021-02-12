@@ -8,13 +8,16 @@
 #include "config.h"
 #include "secrets.h" 
 
+int urlSize = 10;
+String results[10];
+
 //all setup functions
 void setup(){
   setupSwitchLEDLights();
   setupNetwork();
   String RequestUrls[urlSize];
   // function returns an array of urls 
-  GetUrlRequest(RequestUrls); 
+  SetUrlRequest(RequestUrls); 
   for (int i=0; i< urlSize; i++)
       {
         String url =  RequestUrls[i];

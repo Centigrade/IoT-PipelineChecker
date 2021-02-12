@@ -2,9 +2,12 @@
 
 void setupSwitchLEDLights() {
   // set LEDs as output
-  pinMode(greenLEDPin, OUTPUT);
-  pinMode(blueLEDPin, OUTPUT);
-  pinMode(redLEDPin, OUTPUT);
+  pinMode(greenLEDPinProject1, OUTPUT);
+  pinMode(blueLEDPinProject1, OUTPUT);
+  pinMode(redLEDPinProject1, OUTPUT);
+  pinMode(greenLEDPinProject2, OUTPUT);
+  pinMode(blueLEDPinProject2, OUTPUT);
+  pinMode(redLEDPinProject2, OUTPUT);
   
 }
 /*recieves the final parsed result and 
@@ -18,32 +21,45 @@ void loopSwitchLEDLights(PipelineState pState){
   switch (pState){
     Serial.println("LoopSwitchPState: " + pState);
     case UNKNOWN: // blink bleu LED
-      digitalWrite(greenLEDPin, LOW);
-      digitalWrite(blueLEDPin, HIGH);
-      digitalWrite(redLEDPin, LOW);
+      digitalWrite(greenLEDPinProject1, LOW);
+      digitalWrite(blueLEDPinProject1, HIGH);
+      digitalWrite(redLEDPinProject1, LOW);
+      digitalWrite(greenLEDPinProject2, LOW);
+      digitalWrite(blueLEDPinProject2, HIGH);
+      digitalWrite(redLEDPinProject2, LOW);
       delay(1000);
-      digitalWrite(blueLEDPin, LOW);
+      digitalWrite(blueLEDPinProject2, LOW);
+      digitalWrite(blueLEDPinProject1, LOW);
       break;
     
     case PASSED: // light green LED
       Serial.println("This is Passed, green LED on");
-      digitalWrite(greenLEDPin, HIGH);
-      digitalWrite(blueLEDPin, LOW);
-      digitalWrite(redLEDPin, LOW);
+      digitalWrite(greenLEDPinProject1, HIGH);
+      digitalWrite(blueLEDPinProject1, LOW);
+      digitalWrite(redLEDPinProject1, LOW);
+      digitalWrite(greenLEDPinProject2, HIGH);
+      digitalWrite(blueLEDPinProject2, LOW);
+      digitalWrite(redLEDPinProject2, LOW);
       break;
 
     case FAILED: // light red LED
       Serial.println("This is failed, red LED on");
-      digitalWrite(greenLEDPin, LOW);
-      digitalWrite(blueLEDPin, LOW);
-      digitalWrite(redLEDPin, HIGH);
+      digitalWrite(greenLEDPinProject1, LOW);
+      digitalWrite(blueLEDPinProject1, LOW);
+      digitalWrite(redLEDPinProject1, HIGH);
+      digitalWrite(greenLEDPinProject2, LOW);
+      digitalWrite(blueLEDPinProject2, LOW);
+      digitalWrite(redLEDPinProject2, HIGH);
       break;
 
     case RUNNING:  // light bleu LED
        Serial.println("This is pending, blue LED on");
-      digitalWrite(greenLEDPin, LOW);
-      digitalWrite(blueLEDPin, HIGH);
-      digitalWrite(redLEDPin, LOW);
+      digitalWrite(greenLEDPinProject1, LOW);
+      digitalWrite(blueLEDPinProject1, HIGH);
+      digitalWrite(redLEDPinProject1, LOW);
+      digitalWrite(greenLEDPinProject2, LOW);
+      digitalWrite(blueLEDPinProject2, HIGH);
+      digitalWrite(redLEDPinProject2, LOW);
       break;
   }
 
