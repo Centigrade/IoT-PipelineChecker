@@ -2,8 +2,6 @@
 
 //Class with a String array as parametter to get the diffents url and strore them
 void SetUrlRequest(String RequestUrls[]) {
-  Serial.println("Getting URL: ");
-
   // Allocate the JsonDocument
   DynamicJsonDocument jsonBuffer(200);
 

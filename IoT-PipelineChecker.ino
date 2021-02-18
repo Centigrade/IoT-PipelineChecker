@@ -28,7 +28,6 @@ void setup() {
     }
   }
 
-  Serial.println("This is the program running");
 }
 
 //all loop functions

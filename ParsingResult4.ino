@@ -20,21 +20,21 @@ String getPipelineStatus(String document) {
   Serial.println(id);
   Serial.print("status: ");
   Serial.println(status);
-
+  
   if (strcmp(status , "success") == 0)
-  { Serial.println("here we are successful");
+  { Serial.println("here we are successful");// to remove. debugging printout
     pState = PASSED;// PASSED case
   }
   else if (strcmp(status , "failed") == 0)
-  { Serial.println("here we meet failure");
+  { Serial.println("here we meet failure");// to remove. debugging printout
     pState = FAILED;// FAILED case
   }
   else if (strcmp(status , "running") == 0)
-  { Serial.println("still running");
+  { Serial.println("still running");// to remove. debugging printout
     pState = RUNNING;// RUNNING case
   }
   else
-  { Serial.println("no one knowsss");
+  { Serial.println("no one knowsss");// to remove. debugging printout
     pState = UNKNOWN;// UNKNOWN case
   }
 }

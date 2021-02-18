@@ -19,10 +19,10 @@ void loopSwitchLEDLights(int projectNr) {
   switch (pState)
   {
     case UNKNOWN: // UNKNOWN case, blink bleu LED
-      Serial.println("now in the UNKNOWN case");
+      Serial.println("now in the UNKNOWN case");// to remove. debugging printout
       if (projectNr == 0)
       {
-        Serial.println("This is UNKNOWN, blue LED on for project " + projectNr);
+        Serial.println("This is UNKNOWN, blue LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject1, LOW);
         digitalWrite(blueLEDPinProject1, HIGH);
         digitalWrite(redLEDPinProject1, LOW);
@@ -31,7 +31,7 @@ void loopSwitchLEDLights(int projectNr) {
       }
       else if (projectNr == 1)
       {
-        Serial.println("This is UNKNOWN, blue LED on for project " + projectNr);
+        Serial.println("This is UNKNOWN, blue LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject2, LOW);
         digitalWrite(blueLEDPinProject2, HIGH);
         digitalWrite(redLEDPinProject2, LOW);
@@ -41,17 +41,17 @@ void loopSwitchLEDLights(int projectNr) {
       break;
 
     case PASSED: // PASSED case, light green LED
-      Serial.println("now in the PASSED case");
+      Serial.println("now in the PASSED case");// to remove. debugging printout
       if (projectNr == 0)
       {
-        Serial.println("This is Passed, green LED on for project " + projectNr);
+        Serial.println("This is Passed, green LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject1, HIGH);
         digitalWrite(blueLEDPinProject1, LOW);
         digitalWrite(redLEDPinProject1, LOW);
       }
       else if (projectNr == 1)
       {
-        Serial.println("This is Passed, green LED on for project " + projectNr);
+        Serial.println("This is Passed, green LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject2, HIGH);
         digitalWrite(blueLEDPinProject2, LOW);
         digitalWrite(redLEDPinProject2, LOW);
@@ -59,17 +59,17 @@ void loopSwitchLEDLights(int projectNr) {
       break;
 
     case FAILED: // FAILED case, light red LED
-      Serial.println("now in the FAILED case");
+      Serial.println("now in the FAILED case");// to remove. debugging printout
       if (projectNr == 0)
       {
-        Serial.println("This is failed, red LED on for project " + projectNr);
+        Serial.println("This is failed, red LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject1, LOW);
         digitalWrite(blueLEDPinProject1, LOW);
         digitalWrite(redLEDPinProject1, HIGH);
       }
       else if (projectNr == 1)
       {
-        Serial.println("This is failed, red LED on for project " + projectNr);
+        Serial.println("This is failed, red LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject2, LOW);
         digitalWrite(blueLEDPinProject2, LOW);
         digitalWrite(redLEDPinProject2, HIGH);
@@ -77,17 +77,17 @@ void loopSwitchLEDLights(int projectNr) {
       break;
 
     case RUNNING:  // RUNNING case, light bleu LED
-      Serial.println("now in the RUNNING case");
+      Serial.println("now in the RUNNING case");// to remove. debugging printout
       if (projectNr == 0)
       {
-        Serial.println("This is pending, blue LED on for project " + projectNr);
+        Serial.println("This is pending, blue LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject1, LOW);
         digitalWrite(blueLEDPinProject1, HIGH);
         digitalWrite(redLEDPinProject1, LOW);
       }
       else if (projectNr == 1)
       {
-        Serial.println("This is pending, blue LED on for project " + projectNr);
+        Serial.println("This is pending, blue LED on for project " + projectNr);// to remove. debugging printout
         digitalWrite(greenLEDPinProject2, LOW);
         digitalWrite(blueLEDPinProject2, HIGH);
         digitalWrite(redLEDPinProject2, LOW);
@@ -95,7 +95,7 @@ void loopSwitchLEDLights(int projectNr) {
       break;
 
     default:
-      Serial.println("now in the default case");
+      Serial.println("Something went wrong!!!");
   }
 
   delay(1000);
