@@ -16,10 +16,9 @@ void setupSwitchLEDLights() {
   outcomes(enum)
 */
 void loopSwitchLEDLights(int projectNr) {
-  Serial.println("let´s start the game" + pState);
   switch (pState)
   {
-    case 0: // UNKNOWN case, blink bleu LED
+    case UNKNOWN: // UNKNOWN case, blink bleu LED
       Serial.println("now in the UNKNOWN case");
       if (projectNr == 0)
       {
@@ -41,7 +40,7 @@ void loopSwitchLEDLights(int projectNr) {
       }
       break;
 
-    case 1: // PASSED case, light green LED
+    case PASSED: // PASSED case, light green LED
       Serial.println("now in the PASSED case");
       if (projectNr == 0)
       {
@@ -59,7 +58,7 @@ void loopSwitchLEDLights(int projectNr) {
       }
       break;
 
-    case 2: // FAILED case, light red LED
+    case FAILED: // FAILED case, light red LED
       Serial.println("now in the FAILED case");
       if (projectNr == 0)
       {
@@ -77,7 +76,7 @@ void loopSwitchLEDLights(int projectNr) {
       }
       break;
 
-    case 3:  // RUNNING case, light bleu LED
+    case RUNNING:  // RUNNING case, light bleu LED
       Serial.println("now in the RUNNING case");
       if (projectNr == 0)
       {

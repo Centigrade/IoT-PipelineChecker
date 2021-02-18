@@ -23,18 +23,18 @@ String getPipelineStatus(String document) {
 
   if (strcmp(status , "success") == 0)
   { Serial.println("here we are successful");
-    pState = 1;// PASSED case
+    pState = PASSED;// PASSED case
   }
   else if (strcmp(status , "failed") == 0)
   { Serial.println("here we meet failure");
-    pState = 2;// FAILED case
+    pState = FAILED;// FAILED case
   }
   else if (strcmp(status , "running") == 0)
   { Serial.println("still running");
-    pState = 3;// RUNNING case
+    pState = RUNNING;// RUNNING case
   }
   else
   { Serial.println("no one knowsss");
-    pState = 0;// UNKNOWN case
+    pState = UNKNOWN;// UNKNOWN case
   }
 }

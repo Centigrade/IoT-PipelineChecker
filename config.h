@@ -25,4 +25,7 @@ long lastUpdateMillis = 0;
 char input[] = "[{\"apiVersion\":\"/api/v4\",\"projectId\":\"253\"},{\"apiVersion\":\"/api/v4\",\"projectId\":\"237\"}]";
 
 int urlSize = 10;
-int pState = 0;
+//int pState = 0;
+
+enum PipelineState {PASSED, RUNNING, UNKNOWN, FAILED};
+PipelineState pState = UNKNOWN;
