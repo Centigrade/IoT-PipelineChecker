@@ -8,7 +8,7 @@
 #include "config.h"
 #include "secrets.h"
 
-String results[10];
+String results[3];
 
 //all setup functions
 void setup() {
@@ -22,9 +22,7 @@ void setup() {
     String url =  RequestUrls[i];
     if (url.length() > 0)
     {
-      Serial.println("Trying GitLabConnection or Url : " + url);
       results[i] = GitlabServerConnection(url);
-      Serial.println("Result from Url is : " + results[i]);
     }
   }
 
