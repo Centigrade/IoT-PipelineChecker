@@ -74,9 +74,9 @@ Here we can find an example of such a file: [secrets.h.example](https://github.c
 
 ### **Authors**
 
-* Martin Fokam Simo - Initial work - loTpipeLineChecker
+* _Martin Fokam Simo_ - Initial work - loTpipeLineChecker
 
-See also the list of contributors who participated in this project.
+See also the list of [contributors](https://github.com/Centigrade/IoT-PipelineChecker/blob/feature/finish-pipeLineChecker/Contributors.md) who participated in this project.
 
 
 ### **License**
