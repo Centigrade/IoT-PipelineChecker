@@ -64,6 +64,14 @@ Fill out the settings at the top, and flash it on a compatible board. Connect vi
 Alongside the obvious SUCCESS (green), RUNNING (blue) and FAILED (red) statuses there’s also  UNKNOWN (blinking blue, when the status is different from anything the code checks against).
 
 
+### **Deployment**
+
+* All parametres wich are to be use all through the project such as URLs, LEDs pins setup and many others should be stored in a [configuration file](https://github.com/Centigrade/IoT-PipelineChecker/blob/feature/finish-pipeLineChecker/config.h) and imported in to the [main file](https://github.com/Centigrade/IoT-PipelineChecker/blob/feature/finish-pipeLineChecker/IoT-PipelineChecker.ino) as a libary.
+
+* Also all sensitive informations not to be shared with the general public like for example passwords should be stored in a secret file an imported in to the [main file](https://github.com/Centigrade/IoT-PipelineChecker/blob/feature/finish-pipeLineChecker/IoT-PipelineChecker.ino) as a libary as well. 
+Here we can find an example of such a file: [secrets.h.example](https://github.com/Centigrade/IoT-PipelineChecker/blob/feature/finish-pipeLineChecker/secrets.h.example).
+
+
 ### **Authors**
 
 * Martin Fokam Simo - Initial work - loTpipeLineChecker
