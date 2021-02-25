@@ -47,13 +47,33 @@ It powers multiple LEDs directly from an Arduino’s xV supply pins, which can p
 with help of the USB connector’s power, I am able to supply the board with enough current and upload the program code on to it. It isn’t exactly pretty, but it works just fine. The resistors I used are 200 Ohm between the digital pins and ground bases.
 
 
-
 ### **Code**
 
 The code written for this project can be found here:
      [Project   loTpipeLineChecker](https://github.com/Centigrade/IoT-PipelineChecker/tree/feature/finish-pipeLineChecker)
 
-     
+* [Arduino core for ESP32 WiFi chip](https://dl.espressif.com/dl/package_esp32_index.json) to run the whole thing on any ESP32-based board. To install this, you need to add the library URL to your Arduino Board Manager: `https://dl.espressif.com/dl/package_esp32_index.json` .
+
+* [ArduinoJson](https://arduinojson.org/) to deserialize GitLab API responses and extract the pipeline id and status. This can be installed and included directly via the Arduino Library Manager.
+
+Fill out the settings at the top, and flash it on a compatible board. Connect via Serial Monitor to check that it works - it’ll connect to WiFi and start polling the pipeline status, outputting some debug info along the way.
+
+
+### **Green, blue, red and various states**
+
+Alongside the obvious SUCCESS (green), RUNNING (blue) and FAILED (red) statuses there’s also  UNKNOWN (blinking blue, when the status is different from anything the code checks against).
+
+
+### **Authors**
+
+* Martin Fokam Simo - Initial work - loTpipeLineChecker
+
+See also the list of contributors who participated in this project.
+
+
+### **License**
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Centigrade/IoT-PipelineChecker/blob/feature/finish-pipeLineChecker/LICENSE) file for details.
 
 
 
