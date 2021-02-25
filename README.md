@@ -36,4 +36,4 @@ DFRobot introduces the ESP-ROOM-32 module, based on the Espressif. ESP32 chip. I
 
 ### **Hardware Circuity**
 
-![Hardware circuity](/images/logo.png)
+![Hardware circuity](https://i.postimg.cc/2yGVrzsh/PSX-20210225-144539.jpg)
