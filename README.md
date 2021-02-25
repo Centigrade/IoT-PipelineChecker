@@ -36,4 +36,25 @@ DFRobot introduces the ESP-ROOM-32 module, based on the Espressif. ESP32 chip. I
 
 ### **Hardware Circuity**
 
+The project hardware uses six LEDs to get a level of illumination at least sort of visible from across the room. Here each pin of a esp32 WROOM can only output a small amount of current which is enough to power a single LED at anywhere near maximum brightness.
+
 ![Hardware circuity](https://i.postimg.cc/2yGVrzsh/PSX-20210225-144539.jpg)
+![Hardware circuity](https://i.postimg.cc/6qczZY6k/Capture.png)
+
+
+It powers multiple LEDs directly from an Arduino’s xV supply pins, which can provide a much higher current than a common 5V output. The program resets and runs easily, switching the LEDs on and off using a capacitor, whose base is wired to the reset pin and the ground pins of the esp32 WROOM. This way, the board runs and resets automatically rather than always resseting mannually.
+
+with help of the USB connector’s power, I am able to supply the board with enough current and upload the program code on to it. It isn’t exactly pretty, but it works just fine. The resistors I used are 200 Ohm between the digital pins and ground bases.
+
+
+
+### **Code**
+
+The code written for this project can be found here:
+     [Project   loTpipeLineChecker](https://github.com/Centigrade/IoT-PipelineChecker/tree/feature/finish-pipeLineChecker)
+
+     
+
+
+
+
